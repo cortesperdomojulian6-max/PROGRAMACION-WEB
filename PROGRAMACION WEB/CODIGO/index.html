@@ -179,7 +179,7 @@ nav{
     drop-shadow(0 0 32px var(--c1))
     drop-shadow(0 0 70px rgba(200,255,0,.4));
 }
-.avatar-tags{position:absolute;bottom:-24px;left:50%;transform:translateX(-50%);
+.avatar-tags{position:absolute;bottom:-30px;left:50%;transform:translateX(-50%);
   display:flex;gap:.6rem;white-space:nowrap}
 .avatar-tag{
   font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;
@@ -457,7 +457,44 @@ footer{
   .feat-right{min-height:180px}
   .proj{grid-template-columns:50px 1fr;gap:1rem}
   .proj-tags,.proj-link{display:none}
+  .skills-mosaic{grid-template-columns:repeat(auto-fill,minmax(75px,1fr));gap:.6rem}
   footer{flex-direction:column;gap:.5rem;padding:2rem 1.5rem}
+}
+@media(max-width:600px){
+  nav{padding:.8rem 1rem}
+  .nav-wordmark{font-size:1.1rem}
+  body{cursor:auto}
+  #cur,#cur-ring{display:none}
+  .hero{padding:4rem 1rem 1.5rem;gap:2rem}
+  .avatar-scene{width:220px;height:220px}
+  .avatar-neon-wrap{width:180px;height:180px}
+  .hero-left{padding:5rem 0 2rem}
+  .hero-name{font-size:clamp(2.8rem,12vw,4rem)}
+  .hero-role{font-size:1rem}
+  .hero-desc{font-size:.75rem;max-width:none}
+  .hero-btns{flex-direction:column}
+  .btn{padding:.7rem 1.2rem;font-size:.65rem;justify-content:center}
+  .hero-eyebrow{font-size:.55rem}
+  .skills-mosaic{grid-template-columns:repeat(auto-fill,minmax(65px,1fr));gap:.4rem}
+  .skill-tile{padding:.8rem .5rem .6rem}
+  .skill-tile img{width:28px;height:28px}
+  .skill-tile .s-name{font-size:.5rem}
+  .about-stats{grid-template-columns:1fr 1fr}
+  .astat{padding:1rem}
+  .astat-n{font-size:1.5rem}
+  .avatar-tags{bottom:-18px}
+  .avatar-tag{font-size:.5rem;padding:.25rem .7rem}
+  .feat-preview{height:160px}
+  .cta-big{font-size:clamp(2rem,10vw,3rem)}
+  .contact-wrap .btn{width:100%}
+  .clink{padding:1rem}
+  .clink-icon{width:36px;height:36px}
+  .clink-icon img{width:18px;height:18px}
+  section{padding:3rem 0}
+  .sec-num{font-size:3rem}
+  .sec-title{font-size:clamp(1.8rem,8vw,2.5rem)}
+  .marquee-item{font-size:.85rem}
+  footer{text-align:center;font-size:.7rem}
 }
 </style>
 </head>
