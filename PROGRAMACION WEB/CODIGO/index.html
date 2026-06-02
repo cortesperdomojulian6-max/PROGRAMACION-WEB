@@ -149,53 +149,37 @@ nav{
   display:flex;align-items:center;justify-content:center;
 }
 /* ─── AVATAR ─── */
-.avatar-scene{position:relative;width:320px;height:320px}
-.avatar-glow{
-  position:absolute;inset:-30px;border-radius:50%;
-  background:radial-gradient(circle,rgba(200,255,0,.12) 0%,transparent 70%);
-  animation:glowpulse 4s ease-in-out infinite;
+.avatar-scene{
+  position:relative;width:320px;height:320px;
+  display:flex;align-items:center;justify-content:center;
 }
-@keyframes glowpulse{0%,100%{transform:scale(1);opacity:.6}50%{transform:scale(1.1);opacity:1}}
-.avatar-ring1{
-  position:absolute;inset:-2px;border-radius:50%;
-  background:conic-gradient(from 0deg,var(--c1),var(--c3),var(--c2),var(--c4),var(--c1));
-  animation:spin 6s linear infinite;padding:2px;
+.avatar-neon-wrap{
+  position:relative;width:280px;height:280px;
+  display:flex;align-items:center;justify-content:center;
 }
-.avatar-ring2{
-  position:absolute;inset:-16px;border-radius:50%;
-  border:1px solid rgba(200,255,0,.2);
-  animation:spin 12s linear infinite reverse;
+.avatar-neon-wrap::before{
+  content:'';position:absolute;inset:-20px;
+  background:radial-gradient(circle,rgba(200,255,0,.06) 0%,transparent 70%);
 }
-.avatar-ring3{
-  position:absolute;inset:-30px;border-radius:50%;
-  border:1px dashed rgba(200,255,0,.08);
+.avatar-neon{
+  position:relative;width:100%;height:100%;
+  display:flex;align-items:center;justify-content:center;
 }
-/* orbit dots */
-.orb{
-  position:absolute;top:50%;left:50%;width:8px;height:8px;
-  border-radius:50%;margin:-4px;
-  transform-origin:0 0;
+.avatar-neon img{
+  max-width:90%;max-height:90%;object-fit:contain;
+  filter:
+    drop-shadow(0 0 6px var(--c1))
+    drop-shadow(0 0 18px var(--c1))
+    drop-shadow(0 0 40px rgba(200,255,0,.25));
+  transition:filter .4s ease;
 }
-.orb::after{content:'';position:absolute;inset:0;border-radius:50%;background:currentColor;box-shadow:0 0 8px currentColor}
-.orb1{color:var(--c1);animation:orbit1 6s linear infinite}
-.orb2{color:var(--c4);animation:orbit2 8s linear infinite}
-.orb3{color:var(--c2);animation:orbit3 5s linear infinite}
-@keyframes orbit1{from{transform:rotate(0deg) translateX(175px)}to{transform:rotate(360deg) translateX(175px)}}
-@keyframes orbit2{from{transform:rotate(120deg) translateX(155px)}to{transform:rotate(480deg) translateX(155px)}}
-@keyframes orbit3{from{transform:rotate(240deg) translateX(165px)}to{transform:rotate(600deg) translateX(165px)}}
-@keyframes spin{to{transform:rotate(360deg)}}
-.avatar-mask{
-  position:absolute;inset:2px;border-radius:50%;overflow:hidden;
-  background:var(--s2);
+.avatar-neon:hover img{
+  filter:
+    drop-shadow(0 0 10px var(--c1))
+    drop-shadow(0 0 28px var(--c1))
+    drop-shadow(0 0 60px rgba(200,255,0,.35));
 }
-.avatar-mask img{width:100%;height:100%;object-fit:cover}
-.avatar-mask .av-init{
-  width:100%;height:100%;display:flex;align-items:center;justify-content:center;
-  font-family:var(--bebas);font-size:5rem;
-  background:linear-gradient(135deg,var(--s2),var(--s3));
-  color:var(--c1);
-}
-.avatar-tags{position:absolute;bottom:-20px;left:50%;transform:translateX(-50%);
+.avatar-tags{position:absolute;bottom:-24px;left:50%;transform:translateX(-50%);
   display:flex;gap:.6rem;white-space:nowrap}
 .avatar-tag{
   font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;
@@ -462,6 +446,7 @@ footer{
   .hero{grid-template-columns:1fr;padding:5rem 1.5rem 2rem;gap:3rem}
   .hero-right{height:auto}
   .avatar-scene{width:220px;height:220px}
+  .avatar-neon-wrap{width:180px;height:180px}
   .wrap{padding:0 1.5rem}
   section{padding:5rem 0}
   .sec-header{flex-direction:column;align-items:flex-start;gap:1rem}
@@ -516,24 +501,18 @@ footer{
     </div>
   </div>
   <div class="hero-right">
-    <div class="avatar-scene">
-      <div class="avatar-glow"></div>
-      <div class="avatar-ring3"></div>
-      <div class="avatar-ring2"></div>
-      <div class="avatar-ring1">
-        <div class="avatar-mask">
-          <img src="Avatar.png" alt="Julian Cortes Perdomo">
+     <div class="avatar-scene">
+        <div class="avatar-neon-wrap">
+          <div class="avatar-neon">
+            <img src="Avatar.png" alt="Julian Cortes Perdomo">
+          </div>
+        </div>
+        <div class="avatar-tags">
+          <span class="avatar-tag active">Full-Stack</span>
+          <span class="avatar-tag">E-commerce</span>
+          <span class="avatar-tag">Colombia</span>
         </div>
       </div>
-      <div class="orb orb1"></div>
-      <div class="orb orb2"></div>
-      <div class="orb orb3"></div>
-      <div class="avatar-tags">
-        <span class="avatar-tag active">Full-Stack</span>
-        <span class="avatar-tag">E-commerce</span>
-        <span class="avatar-tag">Colombia</span>
-      </div>
-    </div>
   </div>
 </div>
 
@@ -613,7 +592,7 @@ footer{
       </div>
       <!-- Next.js -->
       <div class="skill-tile" style="--tile-glow:rgba(255,255,255,.06);--tile-border:rgba(255,255,255,.3);--tile-shadow:rgba(255,255,255,.06)">
-        <img src="https://cdn.simpleicons.org/nextdotjs" alt="Next.js">
+        <img src="https://cdn.simpleicons.org/nextdotjs/ffffff" alt="Next.js">
         <span class="s-name">Next.js</span>
       </div>
       <!-- Node.js -->
@@ -623,7 +602,7 @@ footer{
       </div>
       <!-- Express -->
       <div class="skill-tile" style="--tile-glow:rgba(255,255,255,.06);--tile-border:rgba(255,255,255,.25);--tile-shadow:rgba(255,255,255,.06)">
-        <img src="https://cdn.simpleicons.org/express" alt="Express">
+        <img src="https://cdn.simpleicons.org/express/ffffff" alt="Express">
         <span class="s-name">Express</span>
       </div>
       <!-- HTML5 -->
@@ -658,12 +637,12 @@ footer{
       </div>
       <!-- GitHub -->
       <div class="skill-tile" style="--tile-glow:rgba(255,255,255,.06);--tile-border:rgba(255,255,255,.25);--tile-shadow:rgba(255,255,255,.06)">
-        <img src="https://cdn.simpleicons.org/github" alt="GitHub">
+        <img src="https://cdn.simpleicons.org/github/ffffff" alt="GitHub">
         <span class="s-name">GitHub</span>
       </div>
       <!-- Vercel -->
       <div class="skill-tile" style="--tile-glow:rgba(255,255,255,.06);--tile-border:rgba(255,255,255,.3);--tile-shadow:rgba(255,255,255,.06)">
-        <img src="https://cdn.simpleicons.org/vercel" alt="Vercel">
+        <img src="https://cdn.simpleicons.org/vercel/ffffff" alt="Vercel">
         <span class="s-name">Vercel</span>
       </div>
       <!-- Linux -->
