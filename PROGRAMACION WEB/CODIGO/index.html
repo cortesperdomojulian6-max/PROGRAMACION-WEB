@@ -864,7 +864,7 @@ footer{
         <p class="contact-sub">
           Disponible para proyectos freelance, colaboraciones y oportunidades de trabajo. Si tienes una idea, escríbeme — respondo en menos de 24 horas.
         </p>
-        <a href="mailto:cortesperdomojulian6@gmail.com" class="btn btn-lime" style="display:inline-flex"><span>Escríbeme ahora →</span></a>
+        <button class="btn btn-lime" onclick="mailMe()"><span>Escríbeme ahora →</span></button>
       </div>
       <div class="contact-links-list sr">
         <a href="https://github.com/cortesperdomojulian6-max" target="_blank" class="clink">
@@ -877,16 +877,16 @@ footer{
           </div>
           <span class="clink-arr">→</span>
         </a>
-        <a href="mailto:cortesperdomojulian6@gmail.com" class="clink">
+        <button class="clink" onclick="mailMe()" style="cursor:pointer;text-align:left;width:100%">
           <div class="clink-icon">
             <img src="https://cdn.simpleicons.org/gmail" alt="Gmail" style="filter:brightness(0) invert(1)">
           </div>
           <div>
             <div class="clink-label">Email</div>
-            <div class="clink-val">cortesperdomojulian6@gmail.com</div>
+            <div class="clink-val">Enviar mensaje</div>
           </div>
           <span class="clink-arr">→</span>
-        </a>
+        </button>
         <a href="https://www.linkedin.com/in/julian-cortes-perdomo-a0ba803a2" target="_blank" class="clink">
           <div class="clink-icon">
             <img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/linkedin.svg" alt="LinkedIn" style="filter:brightness(0) invert(1);width:24px;height:24px">
@@ -991,7 +991,13 @@ window.addEventListener('scroll',()=>{
       });
     }
   });
-},{passive:true});
+  },{passive:true});
+
+// ── EMAIL PROTECTION
+function mailMe(){
+  const e=atob('Y29ydGVzcGVyZG9tb2p1bGlhbjZAZ21haWwuY29t');
+  location.href='mailto:'+e;
+}
 </script>
 </body>
 </html>
